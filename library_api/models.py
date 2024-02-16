@@ -12,7 +12,7 @@ class StudentData(models.Model):
     borrowal_fine = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
-        return self.name
+        return self.student_name
 
 class BorrowedBook(models.Model):
     borrower = models.ForeignKey(StudentData, on_delete=models.CASCADE)
