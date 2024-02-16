@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class StudentData(models.Model):
     student_name = models.CharField(max_length=255)
-    register_number = models.CharField(max_length=20, unique=True)
+    register_number = models.CharField(max_length=20, primary_key=True)
     student_email = models.EmailField()
     borrowed_books_count = models.IntegerField(default=0)
     borrowal_fine = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -15,12 +15,13 @@ class StudentData(models.Model):
         return self.student_name
 
 class BorrowedBook(models.Model):
+
     borrower = models.ForeignKey(StudentData, on_delete=models.CASCADE)
-    book_id = models.CharField(max_length=20)
+    book_id = models.CharField(max_length=20,primary_key=True)
     book_name = models.CharField(max_length=255)
     borrowed_date = models.DateField()
     return_date = models.DateField(null=True, blank=True)
     fine_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
-        return self.book_name
+        return f"{self.borrower.student_name} - {self.book_name}"
