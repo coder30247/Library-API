@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class StudentData(models.Model):
+class Student_Data(models.Model):
     student_name = models.CharField(max_length=255)
     register_number = models.CharField(max_length=20, primary_key=True)
     student_email = models.EmailField()
@@ -15,7 +15,6 @@ class StudentData(models.Model):
         return self.student_name
 
 class BorrowedBook(models.Model):
-
     borrower = models.ForeignKey(StudentData, on_delete=models.CASCADE)
     book_id = models.CharField(max_length=20,primary_key=True)
     book_name = models.CharField(max_length=255)

@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import StudentData, BorrowedBook
+from .models import *
 # Register your models here.
 
-admin.site.register(StudentData)
-admin.site.register(BorrowedBook)
+admin.site.register(Student_Data)
+admin.site.register(Borrowed_Book)
