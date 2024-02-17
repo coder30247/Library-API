@@ -14,8 +14,8 @@ class Student_Data(models.Model):
     def __str__(self):
         return self.student_name
 
-class BorrowedBook(models.Model):
-    borrower = models.ForeignKey(StudentData, on_delete=models.CASCADE)
+class Borrowed_Book(models.Model):
+    borrower = models.ForeignKey(Student_Data, on_delete=models.CASCADE)
     book_id = models.CharField(max_length=20,primary_key=True)
     book_name = models.CharField(max_length=255)
     borrowed_date = models.DateField()
