@@ -26,6 +26,11 @@ Install dependencies:
 Run migrations:
 'python manage.py migrate'
 
+OPTIONAL:
+create SUPERUSER:
+python manage.py createsuper
+allows you to access the admin page (you can access the model and database visually)
+
 Start the development server:
 'python manage.py runserver'
 
