@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path,include
 from library_api import views
 from rest_framework.routers import DefaultRouter
+from library_api.views import *
 
 router = DefaultRouter()
 router.register("student_data", views.Student_Data_View)
@@ -27,4 +28,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("",views.home, name="home"),
     path("api/", include(router.urls)),
+    path('api/borrowed_book/add/', Borrowed_Book_View.as_view({'post': 'add_borrowed_book'}), name='add-borrowed-book'),
 ]

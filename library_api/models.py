@@ -20,7 +20,6 @@ class Borrowed_Book(models.Model):
     book_name = models.CharField(max_length=255)
     borrowed_date = models.DateField()
     return_date = models.DateField(null=True, blank=True)
-    fine_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"{self.borrower.student_name} - {self.book_name}"
